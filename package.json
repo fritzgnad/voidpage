@@ -1,0 +1,40 @@
+{
+  "name": "voidpage",
+  "version": "1.0.0",
+  "description": "A minimal, distraction-free Markdown editor built with Electron.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "dist": "electron-builder"
+  },
+  "productName": "VoidPage",
+  "keywords": ["electron", "markdown", "writer", "minimal", "void", "page"],
+  "author": "fritzgnad",
+  "license": "ISC",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fritzgnad/voidpage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fritzgnad/voidpage/issues"
+  },
+  "homepage": "https://github.com/fritzgnad/voidpage#readme",
+  "build": {
+    "appId": "com.voidpage.app",
+    "productName": "VoidPage",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "identity": null,
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    }
+  },
+  "devDependencies": {
+    "electron": "^40.8.0",
+    "electron-builder": "^26.8.1"
+  }
+}

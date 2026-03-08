@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>VoidPage</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline';"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="sky">
+      <div class="page-frame">
+        <textarea
+          id="editor"
+          spellcheck="false"
+          autofocus
+          placeholder="Beginne zu schreiben …"
+        ></textarea>
+      </div>
+
+      <div class="status-bar">
+        <span id="file-name">untitled.md</span>
+        <span class="hint">⌘O öffnen &nbsp;•&nbsp; ⌘S speichern &nbsp;•&nbsp; ⇧⌘S speichern unter</span>
+      </div>
+    </div>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>
+

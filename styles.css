@@ -1,0 +1,114 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #050817;
+  color: #f9fafb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Helvetica Neue", sans-serif;
+}
+
+body {
+  overflow: hidden;
+}
+
+.sky {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.04), transparent),
+    radial-gradient(circle at 80% 80%, rgba(148, 163, 184, 0.06), transparent),
+    #020617;
+}
+
+.sky::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    1px 1px at 10% 20%,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.page-frame {
+  position: relative;
+  width: min(80vw, 900px);
+  height: min(70vh, 540px);
+  border-radius: 2px;
+  border: 1px dashed rgba(148, 163, 184, 0.6);
+  background: radial-gradient(circle at top left, #050817, #020617);
+  box-shadow:
+    0 0 0 1px rgba(15, 23, 42, 0.6),
+    0 18px 45px rgba(15, 23, 42, 0.9);
+  display: flex;
+  padding: 32px 36px;
+}
+
+#editor {
+  flex: 1;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  color: #e5e7eb;
+  font-size: 18px;
+  line-height: 1.6;
+  font-family: "Iowan Old Style", "Georgia", "Times New Roman", serif;
+  caret-color: #f9fafb;
+}
+
+#editor::placeholder {
+  color: rgba(148, 163, 184, 0.8);
+}
+
+.status-bar {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.85);
+  pointer-events: none;
+}
+
+.status-bar span {
+  pointer-events: auto;
+}
+
+.status-bar .hint {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .page-frame {
+    width: 92vw;
+    height: 70vh;
+    padding: 24px 20px;
+  }
+
+  #editor {
+    font-size: 16px;
+  }
+}
+
