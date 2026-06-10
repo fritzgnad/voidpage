@@ -1,4 +1,4 @@
-const { app, BrowserWindow, dialog, ipcMain, Menu } = require("electron");
+const { app, BrowserWindow, dialog, ipcMain, Menu, nativeImage } = require("electron");
 const path = require("path");
 const fs = require("fs");
 
@@ -34,6 +34,11 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
+  if (process.platform === "darwin") {
+    const icon = nativeImage.createFromPath(path.join(__dirname, "voidpage_logo.png"));
+    app.dock.setIcon(icon);
+  }
+
   createWindow();
 
   app.on("activate", () => {
@@ -47,6 +52,11 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();
   }
+});
+
+ipcMain.handle("file:new", () => {
+  currentFilePath = null;
+  return { canceled: false };
 });
 
 ipcMain.handle("file:open", async () => {

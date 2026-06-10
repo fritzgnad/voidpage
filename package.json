@@ -26,6 +26,7 @@
     "productName": "VoidPage",
     "mac": {
       "category": "public.app-category.productivity",
+      "icon": "voidpage_logo.png",
       "identity": null,
       "target": [
         "dmg",

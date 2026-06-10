@@ -1,6 +1,9 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("zenWriter", {
+  newFile: async () => {
+    return ipcRenderer.invoke("file:new");
+  },
   openFile: async () => {
     return ipcRenderer.invoke("file:open");
   },

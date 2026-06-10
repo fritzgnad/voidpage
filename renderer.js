@@ -13,6 +13,18 @@ function updateFileNameLabel(path) {
   fileNameLabel.textContent = parts[parts.length - 1];
 }
 
+async function handleNewFile() {
+  try {
+    await window.zenWriter.newFile();
+    currentFilePath = null;
+    editor.value = "";
+    updateFileNameLabel(null);
+    editor.focus();
+  } catch (err) {
+    console.error("Failed to create new file", err);
+  }
+}
+
 async function handleOpenFile() {
   try {
     const result = await window.zenWriter.openFile();
@@ -43,7 +55,10 @@ window.addEventListener("keydown", (event) => {
 
   if (!isMeta) return;
 
-  if (event.code === "KeyO") {
+  if (event.code === "KeyN") {
+    event.preventDefault();
+    handleNewFile();
+  } else if (event.code === "KeyO") {
     event.preventDefault();
     handleOpenFile();
   } else if (event.code === "KeyS" && !event.shiftKey) {
