@@ -1,6 +1,6 @@
 {
   "name": "voidpage",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A minimal, distraction-free Markdown editor built with Electron.",
   "main": "main.js",
   "scripts": {
