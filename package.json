@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "dev": "electron .",
-    "dist": "electron-builder"
+    "dist": "electron-builder --publish never"
   },
   "productName": "VoidPage",
   "keywords": ["electron", "markdown", "writer", "minimal", "void", "page"],
