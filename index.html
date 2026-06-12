@@ -11,19 +11,22 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div class="drag-region">
+      <img class="logo" src="./voidpage_logo.png" alt="VoidPage" draggable="false" />
+    </div>
     <div class="sky">
       <div class="page-frame">
         <textarea
           id="editor"
           spellcheck="false"
           autofocus
-          placeholder="Beginne zu schreiben …"
+          placeholder="Start writing …"
         ></textarea>
       </div>
 
       <div class="status-bar">
         <span id="file-name">untitled.md</span>
-        <span class="hint">⌘O öffnen &nbsp;•&nbsp; ⌘S speichern &nbsp;•&nbsp; ⇧⌘S speichern unter</span>
+        <span class="hint">⌘N new &nbsp;•&nbsp; ⌘O open &nbsp;•&nbsp; ⌘S save &nbsp;•&nbsp; ⇧⌘S save as</span>
       </div>
     </div>
 

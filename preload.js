@@ -7,6 +7,9 @@ contextBridge.exposeInMainWorld("zenWriter", {
   openFile: async () => {
     return ipcRenderer.invoke("file:open");
   },
+  confirmUnsaved: async (fileName) => {
+    return ipcRenderer.invoke("dialog:confirmUnsaved", { fileName });
+  },
   saveFile: async (content, options = {}) => {
     return ipcRenderer.invoke("file:save", {
       content,

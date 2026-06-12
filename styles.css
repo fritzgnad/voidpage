@@ -20,6 +20,30 @@ body {
   overflow: hidden;
 }
 
+/* Invisible strip along the top edge that acts as the window title bar:
+   the frameless window can only be dragged from app-region: drag areas. */
+.drag-region {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  z-index: 10;
+  -webkit-app-region: drag;
+}
+
+.drag-region .logo {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  opacity: 0.75;
+  pointer-events: none;
+  user-select: none;
+}
+
 .sky {
   position: relative;
   width: 100%;

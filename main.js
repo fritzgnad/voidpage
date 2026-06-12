@@ -59,6 +59,19 @@ ipcMain.handle("file:new", () => {
   return { canceled: false };
 });
 
+ipcMain.handle("dialog:confirmUnsaved", async (_event, { fileName } = {}) => {
+  const { response } = await dialog.showMessageBox(mainWindow, {
+    type: "warning",
+    buttons: ["Save", "Don't Save", "Cancel"],
+    defaultId: 0,
+    cancelId: 2,
+    message: `Save changes to "${fileName || "untitled.md"}"?`,
+    detail: "Your changes will be lost if you don't save them.",
+  });
+
+  return { choice: ["save", "discard", "cancel"][response] };
+});
+
 ipcMain.handle("file:open", async () => {
   const { canceled, filePaths } = await dialog.showOpenDialog(mainWindow, {
     properties: ["openFile"],
