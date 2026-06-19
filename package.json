@@ -1,6 +1,6 @@
 {
   "name": "voidpage",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A minimal, distraction-free Markdown editor built with Electron.",
   "main": "main.js",
   "scripts": {
@@ -8,7 +8,14 @@
     "dist": "electron-builder --publish never"
   },
   "productName": "VoidPage",
-  "keywords": ["electron", "markdown", "writer", "minimal", "void", "page"],
+  "keywords": [
+    "electron",
+    "markdown",
+    "writer",
+    "minimal",
+    "void",
+    "page"
+  ],
   "author": "fritzgnad",
   "license": "ISC",
   "type": "commonjs",
@@ -31,11 +38,17 @@
       "target": [
         {
           "target": "dmg",
-          "arch": ["arm64", "x64"]
+          "arch": [
+            "arm64",
+            "x64"
+          ]
         },
         {
           "target": "zip",
-          "arch": ["arm64", "x64"]
+          "arch": [
+            "arm64",
+            "x64"
+          ]
         }
       ]
     }
