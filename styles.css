@@ -124,15 +124,3 @@ body {
   opacity: 0.8;
 }
 
-@media (max-width: 768px) {
-  .page-frame {
-    width: 92vw;
-    height: 70vh;
-    padding: 24px 20px;
-  }
-
-  #editor {
-    font-size: 16px;
-  }
-}
-

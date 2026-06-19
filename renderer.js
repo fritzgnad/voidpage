@@ -1,7 +1,6 @@
 const editor = document.getElementById("editor");
 const fileNameLabel = document.getElementById("file-name");
 
-let currentFilePath = null;
 let isDirty = false;
 
 function updateFileNameLabel(path) {
@@ -28,8 +27,7 @@ async function confirmDiscardChanges() {
     const result = await window.zenWriter.saveFile(editor.value, { saveAs: false });
     if (result?.canceled) return false;
 
-    currentFilePath = result.filePath || null;
-    updateFileNameLabel(currentFilePath);
+    updateFileNameLabel(result.filePath || null);
   }
 
   return true;
@@ -40,7 +38,6 @@ async function handleNewFile() {
     if (!(await confirmDiscardChanges())) return;
 
     await window.zenWriter.newFile();
-    currentFilePath = null;
     isDirty = false;
     editor.value = "";
     updateFileNameLabel(null);
@@ -57,10 +54,9 @@ async function handleOpenFile() {
     const result = await window.zenWriter.openFile();
     if (result?.canceled) return;
 
-    currentFilePath = result.filePath || null;
     isDirty = false;
     editor.value = result.content ?? "";
-    updateFileNameLabel(currentFilePath);
+    updateFileNameLabel(result.filePath || null);
   } catch (err) {
     console.error("Failed to open file", err);
   }
@@ -71,9 +67,8 @@ async function handleSaveFile(options = {}) {
     const result = await window.zenWriter.saveFile(editor.value, options);
     if (result?.canceled) return;
 
-    currentFilePath = result.filePath || null;
     isDirty = false;
-    updateFileNameLabel(currentFilePath);
+    updateFileNameLabel(result.filePath || null);
   } catch (err) {
     console.error("Failed to save file", err);
   }
